@@ -1,0 +1,93 @@
+body {
+  font-family: 'Arimo', sans-serif;
+  background-color: #222B2E;
+}
+
+div {
+  width: 800px;
+  height: 250px;
+  margin: auto;
+  overflow: hidden;
+  background-color: rgba(229, 227, 249, .2);
+  color: #363b49;
+}
+
+section {
+  padding: 20px 20px 36px 36px;
+  float: left;
+  width: 250px;
+  position: relative;
+  left: 410px;
+  top: -50px;
+  color: #FFB6C1;
+  font-size: 20px;
+}
+
+/******header***********/
+header{
+  position: relative;
+  top: 50px;
+}
+
+h1{
+  font-family: 'cloud calligraphy', serif;
+  color: white;
+  font-size: 60pt;
+  position: relative;
+  left: 435px;
+  top: -50px;
+}
+
+/*****lists******/
+
+ol li a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  padding-left: 10px;
+  vertical-align: baseline;
+  line-height: 40px;
+}
+
+a:hover {
+  color: #fdfd96;
+}
+
+li {
+  list-style-type: none;
+  position: relative;
+  left: -60px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: white;
+  padding-left: 20px;
+  line-height: 25px;
+}
+
+
+/*******footer*********/
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color:#566C73;
+  color: white;
+  text-align: center;
+  padding: 26px 26px 26px 26px;
+}
+
+footer p {
+display: inline;
+}
+
+footer p a {
+  text-decoration: none;
+  color: #fbfb96;
+}
+
+footer p a:hover {
+  color: #FFB6C1;
+}
