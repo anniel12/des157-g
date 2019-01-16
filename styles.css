@@ -8,17 +8,16 @@ div {
   height: 250px;
   margin: auto;
   overflow: hidden;
-  background-color: rgba(229, 227, 249, .2);
   color: #363b49;
 }
 
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 section {
-  padding: 20px 20px 36px 36px;
   float: left;
-  width: 250px;
-  position: relative;
-  left: 410px;
-  top: -50px;
   color: #FFB6C1;
   font-size: 20px;
 }
@@ -30,24 +29,18 @@ header{
 }
 
 h1{
-  font-family: 'cloud calligraphy', serif;
+  font-family: 'Roboto Condensed', sans-serif;
   color: white;
   font-size: 60pt;
-  position: relative;
-  left: 435px;
-  top: -50px;
+  width: 800px;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  margin: auto;
+  overflow: hidden;
+  display: block;
 }
 
 /*****lists******/
-
-ol li a {
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  padding-left: 10px;
-  vertical-align: baseline;
-  line-height: 40px;
-}
 
 a:hover {
   color: #fdfd96;
@@ -64,6 +57,7 @@ ul li a {
   color: white;
   padding-left: 20px;
   line-height: 25px;
+  font-size: 17px;
 }
 
 
