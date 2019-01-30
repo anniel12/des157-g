@@ -20,11 +20,11 @@ section {
 }
 
 .first{
-    padding-left: 300px;
+    padding-left: 450px;
 }
 
 .second{
-  height: 460px;
+  height: 330px;
   background-color: white; opacity: 0.9;
 }
 
@@ -60,6 +60,18 @@ h1{
   margin: auto;
 }
 
+#msgSection {
+  width: 50%;
+  min-width: 200px;
+  position: fixed;
+  top: 69%;
+  left: 20%;
+  float: left;
+  margin: auto;
+  padding: 2em;
+  background-color: white;
+  color: brown;
+}
 /*******footer*********/
 footer {
   position: fixed;

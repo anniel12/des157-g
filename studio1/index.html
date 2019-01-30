@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -26,47 +26,43 @@
       </fieldset>
 
 <fieldset>
-  <label for="tea">What kind of tea would you like?</label><br>
-    <input type="radio" name="tea1" value="black"> Black Tea <br>
-    <input type="radio" name="tea2" value="green"> Green Tea <br>
-    <input type="radio" name="tea3" value="oolong"> Oolong Tea <br><br>
+  <label for="tea">What kind of tea would you like?</label><br><br>
+  <select name="tea" id="tea">
+  <option value="black">Black Tea</option>
+  <option value="green">Green Tea</option>
+  <option value="oolong">Oolong Tea</option>
+  </select>
 </fieldset>
 
 <fieldset>
-  <label for="milk">  Would you like milk? </label><br>
-    <input type="radio" name="milkyes" value="yes"> Yes <br>
-    <input type="radio" name="milkno" value="no"> No <br><br>
+  <label for="milk">  Would you like milk? </label><br><br>
+  <select name="milk" id="milk">
+  <option value="milk">Yes</option>
+  <option value="no milk">No</option>
+  </select>
 </fieldset>
 
 <fieldset>
   <label for="toppings">What toppings would you like? </label><br>
-    <input type="checkbox" name="toppings1" value="boba"> Boba <br>
-    <input type="checkbox" name="toppings2" value="grassjelly"> Grass Jelly <br>
-    <input type="checkbox" name="toppings3" value="redbean"> Red Bean <br>
-    <input type="checkbox" name="toppings4" value="aloe"> Aloe <br>
-    <input type="checkbox" name="toppings5" value="pudding"> Egg Pudding <br>
-    <input type="checkbox" name="toppings6" value="coconutjelly"> Coconut Jelly <br>
-    <input type="checkbox" name="toppings7" value="poppingboba"> Popping Boba <br><br>
+    <input type="text" name="toppings" id="toppings"><br><br>
 </fieldset>
 </section>
 
   <section class="second">
 <fieldset>
-  <label for="sweetness">Sweetness level</label> <br>
-    <input type="radio" name="sweet1" value="100"> 100%<br>
-    <input type="radio" name="sweet2" value="75"> 75%<br>
-    <input type="radio" name="sweet3" value="50"> 50%<br>
-    <input type="radio" name="sweet4" value="25"> 25%<br>
-    <input type="radio" name="sweet5" value="0"> 0%<br><br>
+  <label for="sweet">Sweetness level</label> <br>
+  <select name="sweet" id="sweet">
+  <option value="100%">100%</option>
+  <option value="75%">75%</option>
+  <option value="50%">50%</option>
+  <option value="25%">25%</option>
+  <option value="0%">0%</option>
+  </select>
 </fieldset>
 
 <fieldset>
-  <label for="ice">Ice level</label><br>
-    <input type="radio" name="ice1" value="100"> 100%<br>
-    <input type="radio" name="ice2" value="75"> 75%<br>
-    <input type="radio" name="ice3" value="50"> 50%<br>
-    <input type="radio" name="ice4" value="25"> 25%<br>
-    <input type="radio" name="ice5" value="0"> 0%<br><br>
+  <label for="ice">Would you like ice?</label><br>
+    <input type="text" name="ice" id="ice"><br><br>
 </fieldset>
 
 <fieldset>
@@ -76,6 +72,10 @@
 
   </section>
     </form>
+
+		<section id="msgSection">
+  <p id="myMsg"></p>
+</section>
 
 
 <footer>
