@@ -22,6 +22,6 @@ function processForm(evt) {
 
   myMsg.innerHTML = 'Hello ' + name + '!' + ' You ordered ' + tea + ' tea, with ' + milk + ' and ' + toppings + '. ' + sweet + ' sweetness and ' + ice + ' ice.'
 
-console.log('reading js');
+  console.log('reading js');
    evt.preventDefault();
 }
