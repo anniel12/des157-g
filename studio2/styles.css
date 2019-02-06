@@ -4,20 +4,43 @@ body {
   padding-bottom: 100px;
 }
 
+.pic1{
+  grid-area: header;
+}
+
+.pic2{
+  grid-area: menu;
+}
+
+.pic3{
+  grid-area: main;
+}
+
+.pic4{
+  grid-area: left;
+}
+
+.pic5{
+  grid-area: right;
+}
+
+.pic6{
+  grid-area: footer;
+}
+
+
 
 @media (max-width: 768px) {
   align-content: flex-start;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
 
 .column {
-  flex: 50%;
-  max-width: 50%;
-  padding: 0 4px;
+  grid-template-areas:
+  'header'
+  'menu main'
+  'left right footer';
+  /*padding: 5px;*/
 }
 
 /*******footer*********/
