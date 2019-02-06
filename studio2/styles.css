@@ -6,16 +6,12 @@ body {
 
 
 @media (max-width: 768px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
+  align-content: flex-start;
 }
 
 .row {
   display: flex;
-  align-content: flex-start;
-  padding: 0 4px;
+  flex-wrap: wrap;
 }
 
 .column {
