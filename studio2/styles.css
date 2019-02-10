@@ -2,53 +2,28 @@ body {
   font-family: 'Arimo', sans-serif;
   background-size: 100%;
   padding-bottom: 100px;
-  display: grid;
-}
-
-.column {
-  display: grid;
-  grid-template-areas:
-  'header header'
-  'menu main'
-  'left right'
-  'footer footer';
 }
 
 
 
-/*
-.pic1{
-  grid-area: header;
+@media {
+  .container {
+    align-content: center;
+    display: flex;
+/*    flex: 50%;
+    max-width: 50%;*/
+    padding: 0 4px;
+    flex-wrap: wrap;
+  }
+
 }
 
-.pic2{
-  grid-area: menu;
+@media all and (min-width:1300px){
+  .large1 { order: 1; }
+  .large2 { order: 2; }
+  .small { order: 3; }
+
 }
-
-.pic3{
-  grid-area: main;
-}
-
-.pic4{
-  grid-area: left;
-}
-
-.pic5{
-  grid-area: right;
-}
-
-.pic6{
-  grid-area: footer;
-}*/
-
-
-
-@media (max-width: 768px) {
-  align-content: flex-start;
-}
-
-
-
 
 /*******footer*********/
 footer {
@@ -64,7 +39,6 @@ footer {
 
 footer p {
   display: inline;
-
 }
 
 footer p a {
