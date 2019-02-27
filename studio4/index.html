@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Where have you been?</title>
+    <link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet"/>
+    <script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
+    <script type='text/javascript' src='http://d3js.org/topojson.v1.min.js'></script>
+    <script type='text/javascript' src='planetaryjs.min.js'></script>
+    <script type='text/javascript' src='http://planetaryjs.com/world-110m-withlakes.json'></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+<body>
+  <header>
+    <h1>Where have you been?</h1>
+  </header>
+
+<section>
+  <canvas id='rotatingGlobe' width='400' height='400'
+  style='width: 400px; height: 400px; cursor: move;'></canvas>
+  <script type='text/javascript' src='yourApp.js'></script>
+</section>
+
+<form>
+  From:<br>
+  <input type="text" place="from">
+  <br>
+  To:<br>
+  <input type="text" place="to"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<section id="msgSection">
+<p id="myMsg"></p>
+</section>
+
+    <footer>
+      <p><a href="mailto:anili@ucdavis.edu?Subject=Hello%20again" target="_top">email</a></p>
+      <p><a href="https://validator.w3.org/check?uri=referer">html</a></p>
+      <p><a href="https://jigsaw.w3.org/css-validator/check/referer">css</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

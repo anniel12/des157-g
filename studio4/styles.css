@@ -1,0 +1,51 @@
+body {
+  background-color: #001a33;
+  background-size: 100%;
+  color: #ffea00;
+  text-align: center;
+}
+
+section{
+    font-family: 'Raleway', sans-serif;
+    float: center;
+    margin: none;
+    text-align: center;
+    color: #392613;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+form{
+
+}
+
+h1{
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  font-size: 60px;
+}
+
+/*******footer*********/
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color: #ffea00;
+  color: white;
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+}
+
+footer p {
+display: inline;
+}
+
+footer p a {
+  text-decoration: none;
+  color: #001a33;
+}
+
+footer p a:hover {
+  color: #ffe5eb;
+}
