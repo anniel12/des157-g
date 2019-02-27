@@ -4,7 +4,7 @@ var planet = planetaryjs.planet();
 // You can remove this statement if `world-110m.json`
 // is in the same path as the HTML page:
 planet.loadPlugin(planetaryjs.plugins.earth({
-  topojson: { file: 'http/path/to/world-110m.json' }
+  topojson: { file: 'https://raw.githubusercontent.com/openlayers/openlayers/master/examples/data/topojson/world-110m.json' }
 }));
 // Make the planet fit well in its canvas
 planet.projection.scale(250).translate([250, 250]);
@@ -22,7 +22,7 @@ planet.draw(canvas);
   // Note that we're loading a special TopoJSON file
   // (world-110m-withlakes.json) so we can render lakes.
   globe.loadPlugin(planetaryjs.plugins.earth({
-    topojson: { file:   '/world-110m-withlakes.json' },
+    topojson: { file:   'https://raw.githubusercontent.com/darul75/ng-planetaryjs/master/public/world-110m-withlakes.json' },
     oceans:   { fill:   '#000080' },
     land:     { fill:   '#339966' },
     borders:  { stroke: '#008000' }
@@ -64,8 +64,8 @@ planet.draw(canvas);
   // Special code to handle high-density displays (e.g. retina, some phones)
   // In the future, Planetary.js will handle this by itself (or via a plugin).
   if (window.devicePixelRatio == 2) {
-    canvas.width = 800;
-    canvas.height = 800;
+    canvas.width = 400;
+    canvas.height = 400;
     context = canvas.getContext('2d');
     context.scale(2, 2);
   }
