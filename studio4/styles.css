@@ -30,6 +30,22 @@ padding: 5px 10px;
 border-radius: 3px;
 }
 
+
+@media screen and (max-width : 500px)
+{
+  h1
+  {
+    font-size:30px;
+  }
+}
+/* @media screen and (max-width : 1204px)
+{
+  body or yourdiv element
+  {
+    font:<size>px/em/rm;
+  }
+} */
+
 #map {
   position:absolute;
   top:125px;
