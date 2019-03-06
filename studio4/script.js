@@ -1,131 +1,115 @@
 'use strict';
 
-var planet = planetaryjs.planet();
-// You can remove this statement if `world-110m.json`
-// is in the same path as the HTML page:
-planet.loadPlugin(planetaryjs.plugins.earth({
-  topojson: { file: 'https://raw.githubusercontent.com/openlayers/openlayers/master/examples/data/topojson/world-110m.json' }
-}));
-// Make the planet fit well in its canvas
-planet.projection.scale(250).translate([250, 250]);
-var canvas = document.getElementById('globe');
-planet.draw(canvas);
+mapboxgl.accessToken = 'pk.eyJ1IjoiYW5uaWVsMTIiLCJhIjoiY2pzeGh6NXlwMHNvcTQ5cHBpajNmY2hyNCJ9.Osl9lLz0dIM_g-h8hLnz_w';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v9',
+center: [2.3399, 48.8555],
+zoom: 12
+});
 
+var distanceContainer = document.getElementById('distance');
 
-(function() {
-  var globe = planetaryjs.planet();
-  // Load our custom `autorotate` plugin; see below.
-  globe.loadPlugin(autorotate(10));
-  // The `earth` plugin draws the oceans and the land; it's actually
-  // a combination of several separate built-in plugins.
-  //
-  // Note that we're loading a special TopoJSON file
-  // (world-110m-withlakes.json) so we can render lakes.
-  globe.loadPlugin(planetaryjs.plugins.earth({
-    topojson: { file:   'https://raw.githubusercontent.com/darul75/ng-planetaryjs/master/public/world-110m-withlakes.json' },
-    oceans:   { fill:   '#000080' },
-    land:     { fill:   '#339966' },
-    borders:  { stroke: '#008000' }
-  }));
-  // Load our custom `lakes` plugin to draw lakes; see below.
-  globe.loadPlugin(lakes({
-    fill: '#000080'
-  }));
-  // The `pings` plugin draws animated pings on the globe.
-  globe.loadPlugin(planetaryjs.plugins.pings());
-  // The `zoom` and `drag` plugins enable
-  // manipulating the globe with the mouse.
-  globe.loadPlugin(planetaryjs.plugins.zoom({
-    scaleExtent: [100, 300]
-  }));
-  globe.loadPlugin(planetaryjs.plugins.drag({
-    // Dragging the globe should pause the
-    // automatic rotation until we release the mouse.
-    onDragStart: function() {
-      this.plugins.autorotate.pause();
-    },
-    onDragEnd: function() {
-      this.plugins.autorotate.resume();
-    }
-  }));
-  // Set up the globe's initial scale, offset, and rotation.
-  globe.projection.scale(175).translate([175, 175]).rotate([0, -10, 0]);
+// GeoJSON object to hold our measurement features
+var geojson = {
+"type": "FeatureCollection",
+"features": []
+};
 
-  // Every few hundred milliseconds, we'll draw another random ping.
-  // var colors = ['red', 'yellow', 'white', 'orange', 'green', 'cyan', 'pink'];
-  // setInterval(function() {
-  //   var lat = Math.random() * 170 - 85;
-  //   var lng = Math.random() * 360 - 180;
-  //   var color = colors[Math.floor(Math.random() * colors.length)];
-  //   globe.plugins.pings.add(lng, lat, { color: color, ttl: 2000, angle: Math.random() * 10 });
-  // }, 150);
+// Used to draw a line between points
+var linestring = {
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": []
+}
+};
 
-  var canvas = document.getElementById('rotatingGlobe');
-  // Special code to handle high-density displays (e.g. retina, some phones)
-  // In the future, Planetary.js will handle this by itself (or via a plugin).
-  if (window.devicePixelRatio == 2) {
-    canvas.width = 400;
-    canvas.height = 400;
-    context = canvas.getContext('2d');
-    context.scale(2, 2);
-  }
-  // Draw that globe!
-  globe.draw(canvas);
+map.on('load', function() {
+map.addSource('geojson', {
+"type": "geojson",
+"data": geojson
+});
 
-  // This plugin will automatically rotate the globe around its vertical
-  // axis a configured number of degrees every second.
-  function autorotate(degPerSec) {
-    // Planetary.js plugins are functions that take a `planet` instance
-    // as an argument...
-    return function(planet) {
-      var lastTick = null;
-      var paused = false;
-      planet.plugins.autorotate = {
-        pause:  function() { paused = true;  },
-        resume: function() { paused = false; }
-      };
-      // ...and configure hooks into certain pieces of its lifecycle.
-      planet.onDraw(function() {
-        if (paused || !lastTick) {
-          lastTick = new Date();
-        } else {
-          var now = new Date();
-          var delta = now - lastTick;
-          // This plugin uses the built-in projection (provided by D3)
-          // to rotate the globe each time we draw it.
-          var rotation = planet.projection.rotate();
-          rotation[0] += degPerSec * delta / 1000;
-          if (rotation[0] >= 180) rotation[0] -= 360;
-          planet.projection.rotate(rotation);
-          lastTick = now;
-        }
-      });
-    };
-  };
+// Add styles to the map
+map.addLayer({
+id: 'measure-points',
+type: 'circle',
+source: 'geojson',
+paint: {
+'circle-radius': 5,
+'circle-color': '#000'
+},
+filter: ['in', '$type', 'Point']
+});
+map.addLayer({
+id: 'measure-lines',
+type: 'line',
+source: 'geojson',
+layout: {
+'line-cap': 'round',
+'line-join': 'round'
+},
+paint: {
+'line-color': '#000',
+'line-width': 2.5
+},
+filter: ['in', '$type', 'LineString']
+});
 
-  // This plugin takes lake data from the special
-  // TopoJSON we're loading and draws them on the map.
-  function lakes(options) {
-    options = options || {};
-    var lakes = null;
+map.on('click', function(e) {
+var features = map.queryRenderedFeatures(e.point, { layers: ['measure-points'] });
 
-    return function(planet) {
-      planet.onInit(function() {
-        // We can access the data loaded from the TopoJSON plugin
-        // on its namespace on `planet.plugins`. We're loading a custom
-        // TopoJSON file with an object called "ne_110m_lakes".
-        var world = planet.plugins.topojson.world;
-        lakes = topojson.feature(world, world.objects.ne_110m_lakes);
-      });
+// Remove the linestring from the group
+// So we can redraw it based on the points collection
+if (geojson.features.length > 1) geojson.features.pop();
 
-      planet.onDraw(function() {
-        planet.withSavedContext(function(context) {
-          context.beginPath();
-          planet.path.context(context)(lakes);
-          context.fillStyle = options.fill || 'black';
-          context.fill();
-        });
-      });
-    };
-  };
+// Clear the Distance container to populate it with a new value
+distanceContainer.innerHTML = '';
+
+// If a feature was clicked, remove it from the map
+if (features.length) {
+var id = features[0].properties.id;
+geojson.features = geojson.features.filter(function(point) {
+return point.properties.id !== id;
+});
+} else {
+var point = {
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+e.lngLat.lng,
+e.lngLat.lat
+]
+},
+"properties": {
+"id": String(new Date().getTime())
+}
+};
+
+geojson.features.push(point);
+}
+
+if (geojson.features.length > 1) {
+linestring.geometry.coordinates = geojson.features.map(function(point) {
+return point.geometry.coordinates;
+});
+
+geojson.features.push(linestring);
+
+// Populate the distanceContainer with total distance
+var value = document.createElement('pre');
+value.textContent = 'Total distance: ' + turf.lineDistance(linestring).toLocaleString() + 'km';
+distanceContainer.appendChild(value);
+}
+
+map.getSource('geojson').setData(geojson);
+});
+});
+
+map.on('mousemove', function (e) {
+var features = map.queryRenderedFeatures(e.point, { layers: ['measure-points'] });
+// UI indicator for clicking/hovering a point on the map
+map.getCanvas().style.cursor = (features.length) ? 'pointer' : 'crosshair';
 });
