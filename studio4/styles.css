@@ -1,21 +1,9 @@
 body {
-  background-color: #001a33;
+  background-color: rgb(25,26,26);
   color: #ffea00;
   margin:0; padding:0;
   width: 100%;
 }
-
-
-/* section{
-    font-family: 'Raleway', sans-serif;
-    float: center;
-    margin: none;
-    text-align: center;
-    color: #392613;
-    font-size: 15px;
-    margin-bottom: 25px;
-} */
-
 
 h1{
   font-family: 'Quicksand', sans-serif;
@@ -27,8 +15,7 @@ h1{
 
 .distance-container {
 position: absolute;
-top: 60px;
-left: 1050px;
+align-items: center;
 z-index: 1;
 }
 
@@ -47,9 +34,9 @@ border-radius: 3px;
   position:absolute;
   top:125px;
   bottom:0;
-  left: 80px;
-  width:1200px;
-  height: 600px;
+  /* left: 80px; */
+  width:100vw;
+  height: 100vh;
   z-index: -1;
 }
 

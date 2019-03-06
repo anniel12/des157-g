@@ -3,9 +3,9 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5uaWVsMTIiLCJhIjoiY2pzeGh6NXlwMHNvcTQ5cHBpajNmY2hyNCJ9.Osl9lLz0dIM_g-h8hLnz_w';
 var map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/mapbox/streets-v9',
+style: 'mapbox://styles/mapbox/dark-v9',
 center: [2.3399, 48.8555],
-zoom: 12
+zoom: 1
 });
 
 var distanceContainer = document.getElementById('distance');
@@ -38,7 +38,7 @@ type: 'circle',
 source: 'geojson',
 paint: {
 'circle-radius': 5,
-'circle-color': '#000'
+'circle-color': '#ffea00'
 },
 filter: ['in', '$type', 'Point']
 });
@@ -51,7 +51,7 @@ layout: {
 'line-join': 'round'
 },
 paint: {
-'line-color': '#000',
+'line-color': '#ffea00',
 'line-width': 2.5
 },
 filter: ['in', '$type', 'LineString']
