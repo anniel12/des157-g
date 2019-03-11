@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(25,26,26);
-  color: #ffea00;
+  background-color: #CBD2D3;
+  color: #588B8B;
   margin:0; padding:0;
   width: 100%;
 }
@@ -33,7 +33,7 @@ border-radius: 3px;
 {
   h1
   {
-    font-size:30px;
+    font-size:40px;
   }
 }
 
@@ -47,7 +47,7 @@ border-radius: 3px;
   z-index: -1;
 }
 
-/*******footer*********/
+/*******footer********
 
 footer {
   position: fixed;
@@ -71,4 +71,4 @@ footer p a {
 
 footer p a:hover {
   color: #ffe5eb;
-}
+}*******************/
