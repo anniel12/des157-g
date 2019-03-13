@@ -33,4 +33,5 @@ function download(blob){
   a.download = 'picture.jpg';
   document.body.appendChild(a);
   a.click();
+  console.log('reading js');
 }
