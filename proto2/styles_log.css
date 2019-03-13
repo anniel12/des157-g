@@ -18,7 +18,23 @@ a{
   text-align: center;
 }
 
-canvas{
+#log{
+  font-family: 'Quicksand', sans-serif;
+  padding:12px;
+  text-align: center;
+  background-color: #588B8B;
+  color: #ffffff;
+}
+
+#hide{
+  font-family: 'Quicksand', sans-serif;
+  padding:10px;
+  text-align: center;
+  background-color: #588B8B;
+  color: #ffffff;
+}
+
+/* canvas{
   width:50%;
   height:50%;
-}
+} */
