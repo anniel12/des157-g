@@ -10,13 +10,13 @@ zoom: 1
 
 var distanceContainer = document.getElementById('distance');
 
-// GeoJSON object to hold our measurement features
+// measurement features
 var geojson = {
 "type": "FeatureCollection",
 "features": []
 };
 
-// Used to draw a line between points
+// draw a line between points
 var linestring = {
 "type": "Feature",
 "geometry": {
@@ -98,7 +98,7 @@ return point.geometry.coordinates;
 
 geojson.features.push(linestring);
 
-// Populate the distanceContainer with total distance
+//total distance
 var value = document.createElement('pre');
 value.textContent = 'Total distance: ' + turf.lineDistance(linestring).toLocaleString() + 'km';
 distanceContainer.appendChild(value);
@@ -110,6 +110,6 @@ map.getSource('geojson').setData(geojson);
 
 map.on('mousemove', function (e) {
 var features = map.queryRenderedFeatures(e.point, { layers: ['measure-points'] });
-// UI indicator for clicking/hovering a point on the map
+// clicking/hovering a point on the map
 map.getCanvas().style.cursor = (features.length) ? 'pointer' : 'crosshair';
 });
