@@ -1,0 +1,40 @@
+body{
+  background-color: #FDD5C3;
+}
+
+h2{
+  padding-top:20px;
+  padding-left: 20px;
+}
+
+a{
+  font-family: 'Quicksand', sans-serif;
+  text-decoration: none;
+  color: #588B8B;
+  font-size: 40pt;
+}
+
+.middle{
+  text-align: center;
+}
+
+#log{
+  font-family: 'Quicksand', sans-serif;
+  padding:12px;
+  text-align: center;
+  background-color: #588B8B;
+  color: #ffffff;
+}
+
+#hide{
+  font-family: 'Quicksand', sans-serif;
+  padding:10px;
+  text-align: center;
+  background-color: #588B8B;
+  color: #ffffff;
+}
+
+/* canvas{
+  width:50%;
+  height:50%;
+} */
