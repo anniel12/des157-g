@@ -21,7 +21,7 @@ function takeASnap(){
   const ctx = canvas.getContext('2d'); // get its context
   canvas.width = vid.videoWidth; // set its size to the one of the video
   canvas.height = vid.videoHeight;
-  ctx.drawImage(vid, 0,0); // the video
+  ctx.drawImage(vid, 0, 0, 640, 480); // the video
   return new Promise((res, rej)=>{
     canvas.toBlob(res, 'image/jpeg'); // request a Blob from the canvas
   });
