@@ -18,6 +18,15 @@ a{
   text-align: center;
 }
 
+input{
+  text-align: center;
+}
+
+#video{
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
 #log{
   font-family: 'Quicksand', sans-serif;
   padding:12px;
@@ -28,6 +37,7 @@ a{
 
 #hide{
   font-family: 'Quicksand', sans-serif;
+  padding-left: 100px;
   padding:10px;
   text-align: center;
   background-color: #588B8B;
